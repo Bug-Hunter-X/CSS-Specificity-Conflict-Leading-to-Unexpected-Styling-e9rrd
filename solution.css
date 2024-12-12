@@ -1,0 +1,29 @@
+To resolve the specificity issue, we can use more precise selectors and avoid unnecessary overrides. One approach is to be more specific with the selector which will increase its precedence or refactor classes to avoid conflicts. In the example below, we've used a class on the `div` and then used that class with a child selector to target the paragraph.
+
+```css
+.myClass {
+  background-color: yellow;
+}
+
+.myClass p {
+  color: blue;
+}
+
+```
+
+```html
+<div class="myClass">
+  <p class="myClass">This text is now correctly blue.</p>
+</div>
+```
+Another solution would be to use the `!important` flag but this is usually not recommended as this can cause hard to debug issues.
+
+```css
+.myClass p {
+  color: blue !important;
+}
+
+#myDiv p {
+  color: red;
+}
+```
