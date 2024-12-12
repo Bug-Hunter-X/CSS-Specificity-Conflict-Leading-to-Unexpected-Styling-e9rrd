@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an issue where specificity conflicts can cause unexpected styling behavior.  The `#myDiv p` selector has higher specificity than the `.myClass p` selector, resulting in the text color being overridden to red, even though `.myClass p` appears later in the stylesheet. This can be especially confusing when dealing with numerous selectors and complex inheritance.
+
+```css
+.myClass p {
+  color: blue;
+}
+
+#myDiv p {
+  color: red;
+}
+
+#myDiv {
+  background-color: yellow;
+}
+```
+
+```html
+<div id="myDiv">
+  <p class="myClass">This text should be blue, but is red due to specificity.</p>
+</div>
+```
